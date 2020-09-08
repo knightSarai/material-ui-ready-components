@@ -1,4 +1,4 @@
-## compnent in this project:
+## component in this project:
 * appBar: with dark MOOD enabled.
 * Drawer: with open close
 

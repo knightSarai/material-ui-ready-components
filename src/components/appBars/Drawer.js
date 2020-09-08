@@ -56,7 +56,7 @@ function Drawer(props) {
                 open={DrawerOpen}
                 onClick={onToggleDrawer}
             >
-                <Typography variant="h4" className={classes.h4} color="primary">
+                <Typography variant="h4" className={classes.h4} color="secondary">
                     Main
                 </Typography>
                 <List className={classes.list}  >

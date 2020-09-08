@@ -1,14 +1,17 @@
 import React from 'react';
 import AppBarMain from './appBars/AppBarMain';
 import useToggleContext from '../hooks/useToggleState';
+import About from './About';
+import Home from './Home'
+import {Route, Switch} from 'react-router-dom';
 
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
-import { Paper, Container, Typography, Button } from '@material-ui/core';
+import { Paper, Container } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     paper: {
-        height: "100vh"
+        height: "100vh",
     },
     container: {
         marginTop: "1rem"
@@ -28,18 +31,17 @@ export default function App() {
             light: isDarkMode? '#f85f73' : "#4791db",
             main: isDarkMode?"#f73859" : "#1976d2",
           },
-
           },
       });
     return (
         <ThemeProvider theme={theme}>
-            <Paper className={classes.paper} square>
+            <Paper className={classes.paper} square >
                 <AppBarMain toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
                 <Container className={classes.container} maxWidth='lg'>
-                    <Typography>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima voluptate facere obcaecati eius cupiditate quidem quas harum ad, nulla rerum nihil ut at. Culpa cum vitae, sint quo est libero?
-                    </Typography>
-                    <Button variant="contained" color="secondary"> BTN</Button>
+                    <Switch>
+                        <Route exact from="/" render={props => <Home {...props}/>}/ >
+                        <Route exact from="/about" render={props => <About {...props}/>}/ >
+                    </Switch>
                 </Container>
                 
             </Paper>

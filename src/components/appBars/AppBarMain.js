@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {MoodContext} from '../../context/main.context';
 import { makeStyles } from '@material-ui/core/styles';
 
 import useToggleDrawer from '../../hooks/useToggleState';
@@ -23,10 +24,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Appbar(props) {
   const classes = useStyles();
-
-  const {toggleTheme, isDarkMode} = props;
+  const {isDarkMood, dispatch} = useContext(MoodContext);
+  console.log(isDarkMood);
   const onSelectChange = () => {
-    toggleTheme(!isDarkMode)
+    dispatch({type: 'TOGGLE'})
   }
   const [DrawerOpen, toggleDrawer] = useToggleDrawer(false);
 
@@ -41,7 +42,7 @@ export default function Appbar(props) {
             <Typography variant="h6" className={classes.title}>
               Main
             </Typography>
-            <Switch checked={isDarkMode} onChange={onSelectChange}/>
+            <Switch checked={isDarkMood} onChange={onSelectChange}/>
             <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>

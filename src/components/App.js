@@ -2,6 +2,7 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 
 import AppBarMain from './appBars/AppBarMain';
+import UserForm from './stepperForm/UserForm'
 import { MainProvider } from '../context/main.context';
 import About from './About';
 import Home from './Home'
@@ -15,7 +16,8 @@ const useStyles = makeStyles({
         height: "100vh",
     },
     container: {
-        marginTop: "1rem"
+        marginTop: "1rem",
+        textAlign: "center"
     }
 })
 
@@ -28,8 +30,9 @@ export default function App() {
                 <AppBarMain/>
                 <Container className={classes.container} maxWidth='lg'>
                     <Switch>
-                        <Route exact from="/" render={props => <Home {...props}/>}/ >
-                        <Route exact from="/about" render={props => <About {...props}/>}/ >
+                        <Route exact from="/" render={props => <Home {...props}/>}/>
+                        <Route exact from="/about" render={props => <About {...props}/>}/>
+                        <Route exact from="/userform" render={props => <UserForm {...props}/>}/>
                     </Switch>
                 </Container>
             </Paper>

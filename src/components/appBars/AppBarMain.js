@@ -24,10 +24,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Appbar(props) {
   const classes = useStyles();
-  const {isDarkMood, dispatch} = useContext(MoodContext);
-  console.log(isDarkMood);
+  const {mood, dispatch} = useContext(MoodContext);
+  const {isDarkMood} = mood;
   const onSelectChange = () => {
-    dispatch({type: 'TOGGLE'})
+    dispatch({
+      type: 'TOGGLE',
+      payload: {
+        isDarkMood: !isDarkMood
+      }
+    })
   }
   const [DrawerOpen, toggleDrawer] = useToggleDrawer(false);
 

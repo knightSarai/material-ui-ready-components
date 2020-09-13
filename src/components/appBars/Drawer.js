@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core/';
 import InfoIcon from '@material-ui/icons/Info';
 import HomeIcon from '@material-ui/icons/Home';
+import PersonIcon from '@material-ui/icons/Person';
 
 import {
     Drawer as MUIDrawer,
@@ -16,7 +17,7 @@ import {
 
 const useStyles = makeStyles({
     list: {
-        width: "140px"
+        width: "200px"
     },
     h4:{
         textAlign: "center",
@@ -44,11 +45,18 @@ function Drawer(props) {
             }
         },
         {
+            text: "stepper form",
+            icon: <PersonIcon/>,
+            onClick: () => {
+                history.push('/userform')}
+        },
+        {
             text: "about",
             icon: <InfoIcon/>,
             onClick: () => {
                 history.push('/about')}
         }
+        
     ]
     return (
         <div className="">
